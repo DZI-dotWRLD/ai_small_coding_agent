@@ -1,7 +1,22 @@
 import os
 from config import MAX_CHARS
 
-
+schema_get_file_content = {
+    "type": "function",
+    "function": {
+        "name": "get_file_content",
+        "description": "Read file contents",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "file_path": {
+                    "type": "string",
+                    "description": "File path to follow to read the content of the file",
+                },
+            },
+        },
+    },
+}
 
 def get_file_content(working_directory: str, file_path: str) -> str:
 
@@ -32,8 +47,3 @@ def get_file_content(working_directory: str, file_path: str) -> str:
             return content
     except Exception as err:
         print(f"Error: {err}")
-
-
-
-
-print(get_file_content("calculator", "lorem.txt"))

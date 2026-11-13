@@ -1,5 +1,27 @@
 import os
 
+schema_write_file = {
+    "type": "function",
+    "function": {
+        "name": "write_file",
+        "description": "Write or overwrite files",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "content":{
+                    "type":"string",
+                    "description": "String of content which needde to be written inside the file",
+                },
+                "file_path": {
+                    "type": "string",
+                    "description": "File path to follow to get to the file",
+                },
+            },
+        },
+    },
+}
+
+
 def write_file(working_directory: str, file_path: str, content: str) -> str:
     try:
         # Example abs_path = /home/dzi/workspace/bootdotdev/ai_coding_agent/ai_baby_agent/functions/calculator
